@@ -27,26 +27,26 @@ categoryRouter
   .route("/")
   .post(
     protectRoutes,
-    allowTo("admin", "seller"),
+    allowTo("seller"),
     uploadFileOnCloud().single("image"),
     validation(createCategorySchema),
     createCategory
   )
-  .get(protectRoutes, getAllcategories);
+  .get(getAllcategories);
 
 categoryRouter
   .route("/:id")
-  .get(protectRoutes, validation(getOneCategorySchema), getCategoryById)
+  .get(validation(getOneCategorySchema), getCategoryById)
   .put(
     protectRoutes,
-    allowTo("seller", "admin"),
+    allowTo("seller"),
     uploadFileOnCloud().single("image"),
     validation(updateCategorySchema),
     updateCategory
   )
   .delete(
     protectRoutes,
-    allowTo("seller", "admin"),
+    allowTo("seller"),
     validation(deleteCategorySchema),
     deleteCategory
   );

@@ -21,24 +21,24 @@ subcategoryRouter
   .route("/")
   .post(
     protectRoutes,
-    allowTo("admin", "seller"),
+    allowTo("seller"),
     validation(createSubCategorySchema),
     createSubCategory
   )
-  .get(protectRoutes, getAllSubCategories);
+  .get(getAllSubCategories);
 
 subcategoryRouter
   .route("/:id")
-  .get(protectRoutes, validation(getOneSubCategorySchema), getSubCategoryById)
+  .get(validation(getOneSubCategorySchema), getSubCategoryById)
   .put(
     protectRoutes,
-    allowTo("admin", "seller"),
+    allowTo("seller"),
     validation(updateSubCategorySchema),
     updateSubCategory
   )
   .delete(
     protectRoutes,
-    allowTo("admin", "seller"),
+    allowTo("seller"),
     validation(deleteSubCategorySchema),
     deleteSubCategory
   );

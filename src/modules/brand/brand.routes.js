@@ -22,7 +22,7 @@ brandRouter
   .route("/")
   .post(
     protectRoutes,
-    allowTo("admin", "seller"),
+    allowTo("seller"),
     uploadFileOnCloud().single("logo"),
     validation(createBrandSchema),
     createBrand
@@ -33,14 +33,14 @@ brandRouter
   .get(protectRoutes, validation(getOneBrandSchema), getBrandById)
   .put(
     protectRoutes,
-    allowTo("admin", "seller"),
+    allowTo("seller"),
     uploadFileOnCloud().single("logo"),
     validation(updateBrandSchema),
     updateBrand
   )
   .delete(
     protectRoutes,
-    allowTo("admin", "seller"),
+    allowTo("seller"),
     validation(deleteBrandSchema),
     deleteBrand
   );
