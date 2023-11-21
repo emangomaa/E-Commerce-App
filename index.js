@@ -16,7 +16,7 @@ import reviewRouter from "./src/modules/review/review.routes.js";
 import wishListRouter from "./src/modules/wishList/wishList.routes.js";
 import addressRouter from "./src/modules/addresses/address.routes.js";
 import couponRouter from "./src/modules/coupon/coupon.routes.js";
-import CartRouter from "./src/modules/cart/cart.routes.js";
+import cartRouter from "./src/modules/cart/cart.routes.js";
 import orderRouter from "./src/modules/order/order.routes.js";
 const app = express();
 const port = 3000;
@@ -34,7 +34,7 @@ app.use("/api/v1/review", reviewRouter);
 app.use("/api/v1/wishList", wishListRouter);
 app.use("/api/v1/address", addressRouter);
 app.use("/api/v1/coupon", couponRouter);
-app.use("/api/v1/cart", CartRouter);
+app.use("/api/v1/cart", cartRouter);
 app.use("/api/v1/order", orderRouter);
 app.get("*", (req, res, next) => {
   next(new AppError(`can't find this route ${req.originalUrl}`, 404));
