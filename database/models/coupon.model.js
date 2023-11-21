@@ -16,6 +16,15 @@ const couponSchema = new Schema(
       type: String,
       required: [true, "expire date required"],
     },
+    url: String,
+    createdBy: {
+      type: Types.ObjectId,
+      ref: "user",
+    },
+    updatedBy: {
+      type: Types.ObjectId,
+      ref: "user",
+    },
   },
   { timestamps: true }
 );
