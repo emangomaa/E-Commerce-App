@@ -36,6 +36,7 @@ const userSchema = new Schema(
     wishList: [{ type: Types.ObjectId, ref: "product" }],
     addresses: [{ city: String, street: String }],
     changePasswordAt: Date,
+    logoutAt: Date,
     isActive: {
       type: Boolean,
       default: false,
